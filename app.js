@@ -1,13 +1,18 @@
+import dotenv from "dotenv";
 import mysql from "mysql2/promise";
 import express from "express";
-import dotenv from "dotenv";
-import router from "./routes.js";
-
-const app = express();
+import router from "./src/routes.js";
 
 dotenv.config();
 
+const app = express();
+
 app.use(express.json());
+
+app.use("/schoolapi", (req, _, next) => {
+  console.log("got req :", req.method);
+  next();
+});
 
 app.use("/schoolapi", router);
 
