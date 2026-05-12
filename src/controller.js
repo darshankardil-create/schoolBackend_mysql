@@ -9,7 +9,7 @@ export async function handleaddschool(req, res) {
     let empty = true;
 
     for (let i of valuesarr) {
-      if (i.trim() === "") {
+      if (i.toString().trim() === "") {
         empty = false;
         break;
       }
